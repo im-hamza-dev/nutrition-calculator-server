@@ -7,7 +7,7 @@ const fs = require("fs");
 var cors = require("cors");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT;
 
 // Configure Multer for file upload
 const upload = multer({ dest: "uploads/" });
