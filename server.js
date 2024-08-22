@@ -5,8 +5,10 @@ const path = require("path");
 const fs = require("fs");
 
 var cors = require("cors");
+const { createServer } = require("http");
 
 const app = express();
+const httpServer = createServer(app);
 const port = process.env.PORT;
 
 // Configure Multer for file upload
@@ -55,6 +57,6 @@ app.post("/send-pdf", upload.single("file"), (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
+httpServer.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
