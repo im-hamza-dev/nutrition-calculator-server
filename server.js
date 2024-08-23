@@ -18,7 +18,7 @@ app.options("*", cors())
 
 // Endpoint to handle PDF upload and send it via email
 app.post("/send-pdf", upload.single("file"), (req, res) => {
-  const { file, email } = req;
+  const { file, email } = req.body;
   console.log('Recepient: ',email)
   // Create a transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
