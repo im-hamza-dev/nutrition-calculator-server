@@ -14,6 +14,7 @@ const port = process.env.PORT;
 // Configure Multer for file upload
 const upload = multer({ dest: "uploads/" });
 app.use(cors());
+app.options("*", cors())
 
 // Endpoint to handle PDF upload and send it via email
 app.post("/send-pdf", upload.single("file"), (req, res) => {
